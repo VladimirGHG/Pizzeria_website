@@ -5,26 +5,38 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="862bbde7-d82c-4c6b-91ae-f79e016fc1f0" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/Pizzeria_website.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Pizzeria_website/Pizzeria_website/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Pizzeria_website/Pizzeria_website/asgi.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Pizzeria_website/Pizzeria_website/settings.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Pizzeria_website/Pizzeria_website/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Pizzeria_website/Pizzeria_website/wsgi.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Pizzeria_website/manage.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Pizzeria_website/pizzas/migrations/0001_initial.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Pizzeria_website/pizzas/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Pizzeria_website/templates/pizzas/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pizzeria_website/Pizzeria_website/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/Pizzeria_website/Pizzeria_website/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pizzeria_website/Pizzeria_website/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Pizzeria_website/Pizzeria_website/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pizzeria_website/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/Pizzeria_website/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pizzeria_website/pizzas/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/Pizzeria_website/pizzas/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pizzeria_website/pizzas/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/Pizzeria_website/pizzas/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pizzeria_website/pizzas/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Pizzeria_website/pizzas/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
+    <option name="PUSH_TAGS">
+      <GitPushTagMode>
+        <option name="argument" value="--tags" />
+        <option name="title" value="All" />
+      </GitPushTagMode>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GithubDefaultAccount">
@@ -41,6 +53,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "master",
     "ignore.virus.scanning.warn.message": "true",
