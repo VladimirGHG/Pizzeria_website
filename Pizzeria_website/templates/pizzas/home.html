@@ -3,8 +3,8 @@
 <head>
     <title>Pizzeria</title>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <style>
@@ -104,7 +104,7 @@
 <nav class="navbar navbar-inverse">
     <div class="container-fluid">
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+            <button class="navbar-toggle" data-target="#myNavbar" data-toggle="collapse" type="button">
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
@@ -142,7 +142,8 @@
                     <a href="{% url 'pizza_detail' pizza.id %}" style="color: white;">{{ pizza.name }}</a>
                 </div>
                 <div class="panel-body">
-                    <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
+                    <img alt="Image" class="img-responsive" src="https://placehold.it/150x80?text=IMAGE"
+                         style="width:100%">
                 </div>
                 <div class="panel-footer">
                     Price: {{ pizza.price }} AMD
@@ -162,8 +163,8 @@
 <footer class="container-fluid text-center">
     <p>Online Store Copyright</p>
     <form class="form-inline">Get deals:
-        <input type="email" class="form-control" size="50" placeholder="Email Address">
-        <button type="button" class="btn btn-danger">Sign Up</button>
+        <input class="form-control" placeholder="Email Address" size="50" type="email">
+        <button class="btn btn-danger" type="button">Sign Up</button>
     </form>
 </footer>
 
