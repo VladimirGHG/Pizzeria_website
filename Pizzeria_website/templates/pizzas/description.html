@@ -35,6 +35,12 @@
           border-color: #000000; /* Change this to your desired color */
         }
     </style>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 <body>
 <nav class="navbar navbar-inverse">
@@ -62,9 +68,37 @@
         </div>
     </div>
 </nav>
-<h1>Name: {{pizza.name}}</h1>
-<h2>Details: {{pizza.details}}</h2>
-<h2>Score: {{pizza.score}}</h2>
-<h2>Price: {{pizza.price}}</h2>
+<div class="container">
+    <table class="table">
+        <thead>
+        <tr>
+            <th>{{pizza.name}}</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>{{pizza.details}}</td>
+        </tr>
+        {% block content %}
+        {% if pizza.score >= 7 and pizza.score < 9 %}
+            <tr class="warning">
+                <td>Score: {{pizza.score}}</td>
+            </tr>
+        {% elif pizza.score >= 9 %}
+            <tr class="success">
+                <td>Score: {{pizza.score}}</td>
+            </tr>
+        {% elif pizza.score < 7 %}
+            <tr class="danger">
+                <td>Score: {{pizza.score}}</td>
+            </tr>
+        {% endif %}
+        {% endblock content%}
+        <tr class="info">
+            <td>Price: {{pizza.price}}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
 </body>
 </html>

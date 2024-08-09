@@ -13,3 +13,4 @@ def home(requests):
 def pizza_detail(request, id):
     pizza = get_object_or_404(Pizza, id=id)
     return render(request, 'pizzas/description.html', {'pizza': pizza})
+
