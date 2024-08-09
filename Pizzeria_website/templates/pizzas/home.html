@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Pizzeria</title>
+    <title>Pizza Paradiso</title>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1" name="viewport">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
@@ -112,8 +112,8 @@
                 </div>
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="#">Home</a></li>
-                    <li><a href="#">All products</a></li>
-                    <li><a href="#">About Us</a></li>
+                    <li><a href="{% url 'all_products' %}">All Products</a></li>
+                    <li><a href="{% url 'about_us' %}">About Us</a></li>
                     <li class="hover-container">
                         <a href="#">Contact</a>
                         <div class="hover-text">

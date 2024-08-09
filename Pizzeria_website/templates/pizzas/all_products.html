@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Pizza Paradiso</title>
+    <title>Our Products</title>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1" name="viewport">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
@@ -28,11 +28,11 @@
 
         /* Custom panel primary color */
         .panel-primary > .panel-heading {
-          background-color: #000000; /* Change this to your desired color */
-          border-color: #000000; /* Change this to your desired color */
+          background-color: #000000 !important; /* Change this to your desired color */
+          border-color: #000000 !important; /* Change this to your desired color */
         }
         .panel-primary {
-          border-color: #000000; /* Change this to your desired color */
+          border-color: #000000 !important; /* Change this to your desired color */
         }
     </style>
     <meta charset="utf-8">
@@ -41,7 +41,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
-<body>
+<body style="background-color:#272727 ;text-align:center">
 <nav class="navbar navbar-inverse">
     <div class="container-fluid">
         <div class="navbar-header">
@@ -55,7 +55,6 @@
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav">
                 <li class="active"><a href="{% url 'home'%}">Home</a></li>
-                <li><a href="{% url 'all_products' %}">All Products</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="#"><span class="glyphicon glyphicon-user"></span> Your Account</a></li>
@@ -64,40 +63,34 @@
         </div>
     </div>
 </nav>
-<div class="container">
+<div class="container mt-3">
+    <br></br>
+    <h2 style="text-align: center; color: white;">Products You Can get right NOW!</h2>
     <table class="table">
-        <thead>
+        <thead class="table-dark">
         <tr>
-            <th>{{pizza.name}}</th>
+            <th style="text-align: center; color: white;">Our Pizzas</th>
+
         </tr>
         </thead>
+        {% block content %}
+        {% for pizza in pizzas %}
         <tbody>
         <tr>
-            <td>{{pizza.details}}</td>
-        </tr>
-        {% block content %}
-        {% if pizza.score >= 7 and pizza.score < 9 %}
-            <tr class="warning">
-                <td>Score: {{pizza.score}}</td>
-            </tr>
-        {% elif pizza.score >= 9 %}
-            <tr class="success">
-                <td>Score: {{pizza.score}}</td>
-            </tr>
-        {% elif pizza.score < 7 %}
-            <tr class="danger">
-                <td>Score: {{pizza.score}}</td>
-            </tr>
-        {% endif %}
-        {% endblock content%}
-        <tr class="info">
-            <td>Price: {{pizza.price}} AMD</td>
-        </tr>
-        <tr class="info">
-            <td>Dough Type: {{pizza.category}}</td>
+            <td style="text-align: center; color: white;"><a href="{% url 'pizza_detail' pizza.id %}">{{pizza.name}}</a></td>
         </tr>
         </tbody>
+        {% endfor %}
+        {% endblock content %}
+    </table>
+    <table class="table">
+        <thead class="table-dark">
+        <tr>
+            <th style="text-align: center;"><a href="https://tashirpizza.am/">Pizzas Of Our Partners</a></th>
+        </tr>
+        </thead>
     </table>
 </div>
+
 </body>
 </html>
