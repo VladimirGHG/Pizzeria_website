@@ -6,11 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="862bbde7-d82c-4c6b-91ae-f79e016fc1f0" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pizzeria_website/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/Pizzeria_website/db.sqlite3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Pizzeria_website/pizzas/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Pizzeria_website/pizzas/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pizzeria_website/templates/pizzas/all_products.html" beforeDir="false" afterPath="$PROJECT_DIR$/Pizzeria_website/templates/pizzas/all_products.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pizzeria_website/templates/pizzas/description.html" beforeDir="false" afterPath="$PROJECT_DIR$/Pizzeria_website/templates/pizzas/description.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pizzeria_website/templates/pizzas/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/Pizzeria_website/templates/pizzas/home.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

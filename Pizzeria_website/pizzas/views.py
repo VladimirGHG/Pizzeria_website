@@ -6,7 +6,7 @@ from .models import Pizza
 
 def home(requests):
     context = Pizza.objects.all()
-    paginator = Paginator(context, 6)  # Show 5 pizzas per page.
+    paginator = Paginator(context, 6)  # Show 6 pizzas per page.
 
     page_number = requests.GET.get('page')
     page_obj = paginator.get_page(page_number)
