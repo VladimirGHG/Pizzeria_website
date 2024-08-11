@@ -7,10 +7,8 @@
     <list default="true" id="862bbde7-d82c-4c6b-91ae-f79e016fc1f0" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Pizzeria_website/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/Pizzeria_website/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pizzeria_website/pizzas/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/Pizzeria_website/pizzas/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pizzeria_website/pizzas/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/Pizzeria_website/pizzas/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pizzeria_website/pizzas/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Pizzeria_website/pizzas/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Pizzeria_website/pizzas/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Pizzeria_website/pizzas/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pizzeria_website/templates/pizzas/all_products.html" beforeDir="false" afterPath="$PROJECT_DIR$/Pizzeria_website/templates/pizzas/all_products.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Pizzeria_website/templates/pizzas/description.html" beforeDir="false" afterPath="$PROJECT_DIR$/Pizzeria_website/templates/pizzas/description.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Pizzeria_website/templates/pizzas/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/Pizzeria_website/templates/pizzas/home.html" afterDir="false" />
     </list>
@@ -52,6 +50,8 @@
   &quot;keyToString&quot;: {
     &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
     &quot;Python.settings.executor&quot;: &quot;Run&quot;,
+    &quot;Python.thread.executor&quot;: &quot;Debug&quot;,
+    &quot;Python.views.executor&quot;: &quot;Debug&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,

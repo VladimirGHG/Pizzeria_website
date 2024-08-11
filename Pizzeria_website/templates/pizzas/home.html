@@ -8,6 +8,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <style>
+
         /* Remove the navbar's default rounded borders and increase the bottom margin */
         .navbar {
             margin-bottom: 50px;
@@ -90,6 +91,7 @@
             padding: 5px;
             border-radius: 5px;
         }
+
     </style>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -137,7 +139,7 @@
     <div class="container">
         <div class="row">
             {% block content %}
-            {% for pizza in pizzas %}
+            {% for pizza in page_obj %}
             <div class="col-sm-4">
                 <div class="panel panel-primary">
                     <div class="panel-heading">
@@ -163,19 +165,38 @@
                 </div>
             </div>
             {% endfor %}
-            {% endblock content %}
         </div>
+        <br><br>
+        <footer class="container-fluid text-center">
+            <p>Wanna become a member?</p>
+            <form class="form-inline">:
+                <input class="form-control" placeholder="Email Address" size="50" type="email">
+                <button class="btn btn-danger" type="button">Sign Up</button>
+            </form>
+        </footer>
     </div>
+    <div style="text-align: center;">
+        <nav aria-label="Page navigation example">
+            <ul class="pagination">
+                {% if page_obj.has_previous %}
+                <li class="page-item"><a class="page-link" href="?page=1">&laquo First</a></li>
+                <li class="page-item"><a class="page-link" href="?page={{ page_obj.previous_page_number }}">{{ page_obj.previous_page_number }}</a>
+                </li>
 
-    <br><br>
+                {% endif %}
+                <li class="page-item disabled"><a href="#" class="page-link">{{ page_obj.number }}</a></li>
 
-    <footer class="container-fluid text-center">
-        <p>Wanna become a member?</p>
-        <form class="form-inline">:
-            <input class="form-control" placeholder="Email Address" size="50" type="email">
-            <button class="btn btn-danger" type="button">Sign Up</button>
-        </form>
-    </footer>
+                {% if page_obj.has_next %}
+
+                <li class="page-item"><a class="page-link" href="?page={{ page_obj.next_page_number }}">{{ page_obj.next_page_number }}</a></li>
+
+                <li class="page-item"><a class="page-link" href="?page={{ page_obj.paginator.num_pages }}">Last
+                    &raquo</a></li>
+                {% endif %}
+                {% endblock content %}
+            </ul>
+        </nav>
+    </div>
 </div>
 </body>
 </html>

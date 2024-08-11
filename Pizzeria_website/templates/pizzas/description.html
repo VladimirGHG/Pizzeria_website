@@ -98,6 +98,12 @@
         </tr>
         </tbody>
     </table>
+    <div style="text-align: center;">
+        {% load static %}
+        <img src="{{ pizza.image.url }}"
+                             alt="{{ pizza.name }}"
+                             style="width:100%">
+    </div>
 </div>
 </body>
 </html>
