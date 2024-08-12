@@ -5,8 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="862bbde7-d82c-4c6b-91ae-f79e016fc1f0" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Pizzeria_website/templates/pizzas/burgers_home.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Pizzeria_website/templates/pizzas/main_website_page.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pizzeria_website/Pizzeria_website/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/Pizzeria_website/Pizzeria_website/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pizzeria_website/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/Pizzeria_website/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pizzeria_website/pizzas/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/Pizzeria_website/pizzas/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pizzeria_website/pizzas/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/Pizzeria_website/pizzas/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pizzeria_website/pizzas/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Pizzeria_website/pizzas/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Pizzeria_website/pizzas/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Pizzeria_website/pizzas/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pizzeria_website/templates/pizzas/about_us_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/Pizzeria_website/templates/pizzas/about_us_page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pizzeria_website/templates/pizzas/all_products.html" beforeDir="false" afterPath="$PROJECT_DIR$/Pizzeria_website/templates/pizzas/all_products.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pizzeria_website/templates/pizzas/description.html" beforeDir="false" afterPath="$PROJECT_DIR$/Pizzeria_website/templates/pizzas/description.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pizzeria_website/templates/pizzas/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/Pizzeria_website/templates/pizzas/pizzas_home.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,20 +53,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;Python.settings.executor&quot;: &quot;Run&quot;,
-    &quot;Python.thread.executor&quot;: &quot;Debug&quot;,
-    &quot;Python.views.executor&quot;: &quot;Debug&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "Python.settings.executor": "Run",
+    "Python.thread.executor": "Debug",
+    "Python.views.executor": "Debug",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
+    "settings.editor.selected.configurable": "advanced.settings"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\user\PycharmProjects\Pizzeria_website\Pizzeria_website\st_media" />
+      <recent name="C:\Users\user\PycharmProjects\Pizzeria_website\Pizzeria_website\templates" />
       <recent name="C:\Users\user\PycharmProjects\Pizzeria_website\Pizzeria_website\media" />
     </key>
   </component>

@@ -54,7 +54,7 @@
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="{% url 'home'%}">Home</a></li>
+                <li class="active"><a href="{% url 'home_pizzas'%}">Home</a></li>
                 <li><a href="{% url 'all_products' %}">All Products</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
@@ -77,17 +77,17 @@
         </tr>
         {% block content %}
         {% if pizza.score >= 7 and pizza.score < 9 %}
-            <tr class="warning">
-                <td>Score: {{pizza.score}}</td>
-            </tr>
+        <tr class="warning">
+            <td>Score: {{pizza.score}}</td>
+        </tr>
         {% elif pizza.score >= 9 %}
-            <tr class="success">
-                <td>Score: {{pizza.score}}</td>
-            </tr>
+        <tr class="success">
+            <td>Score: {{pizza.score}}</td>
+        </tr>
         {% elif pizza.score < 7 %}
-            <tr class="danger">
-                <td>Score: {{pizza.score}}</td>
-            </tr>
+        <tr class="danger">
+            <td>Score: {{pizza.score}}</td>
+        </tr>
         {% endif %}
         {% endblock content%}
         <tr class="info">
@@ -101,9 +101,40 @@
     <div style="text-align: center;">
         {% load static %}
         <img src="{{ pizza.image.url }}"
-                             alt="{{ pizza.name }}"
-                             style="width:100%">
+             alt="{{ pizza.name }}"
+             style="width:100%">
     </div>
+    <h1><b>Similar Pizzas</b></h1>
+    {% for other_pizza in pizzas %}
+    {% if other_pizza.name != pizza.name and other_pizza.category == pizza.category%}
+    {% if other_pizza.price > lower_price and other_pizza.price < upper_price%}
+    <div class="col-sm-4">
+        <div class="panel panel-primary" style="style=“background-color:black;”">
+            <div class="panel-heading">
+                <a href="{% url 'pizza_detail' other_pizza.id %}" style="color: white;">{{ other_pizza.name }}</a>
+            </div>
+            <div class="panel-body">
+                {% if other_pizza.image %}
+                {% load static %}
+                <img src="{{ other_pizza.image.url }}"
+                     alt="{{ other_pizza.name }}"
+                     style="width:100%">
+                {% else %}
+                <img alt="Image" class="img-responsive" src="https://placehold.it/150x80?text=IMAGE"
+                     style="width:100%">
+                {% endif %}
+            </div>
+            <div class="panel-footer">
+                Price: {{ other_pizza.price }} AMD
+                <div class="text-right">
+                    Score: {{ other_pizza.score }}
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+    {% endif %}
+    {% endfor %}
 </div>
 </body>
 </html>

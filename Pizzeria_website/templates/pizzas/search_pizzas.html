@@ -1,0 +1,38 @@
+{% extends 'pizzas/home.html' %}
+
+{% block content %}
+<center>
+    {% if searched_val and length_of_search > 3%}
+    <h1>Results for {{searched_val}}</h1>
+    <br/>
+    {% for pizza in filtered %}
+    <div class="col-sm-4">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <a href="{% url 'pizza_detail' pizza.id %}" style="color: white;">{{ pizza.name }}</a>
+            </div>
+            <div class="panel-body">
+                {% if pizza.image %}
+                {% load static %}
+                <img src="{{ pizza.image.url }}"
+                     alt="{{ pizza.name }}"
+                     style="width:100%">
+                {% else %}
+                <img alt="Image" class="img-responsive" src="https://placehold.it/150x80?text=IMAGE"
+                     style="width:100%">
+                {% endif %}
+            </div>
+            <div class="panel-footer">
+                Price: {{ pizza.price }} AMD
+                <div class="text-right">
+                    Score: {{ pizza.score }}
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+    {% else %}
+    <h1>Nothing was found!</h1>
+    {% endif %}
+</center>
+{% endblock %}
