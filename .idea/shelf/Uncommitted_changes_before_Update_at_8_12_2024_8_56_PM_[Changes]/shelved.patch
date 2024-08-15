@@ -1,0 +1,260 @@
+Index: Pizzeria_website/templates/pizzas/home.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><!DOCTYPE html>\r\n<html lang=\"en\">\r\n<head>\r\n    <title>Pizza Paradiso</title>\r\n    <meta charset=\"utf-8\">\r\n    <meta content=\"width=device-width, initial-scale=1\" name=\"viewport\">\r\n    <link href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css\" rel=\"stylesheet\">\r\n    <script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js\"></script>\r\n    <script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js\"></script>\r\n    <style>\r\n        /* Remove the navbar's default rounded borders and increase the bottom margin */\r\n        .navbar {\r\n            margin-bottom: 50px;\r\n            border-radius: 0;\r\n        }\r\n\r\n        /* Remove the jumbotron's default bottom margin */\r\n        .jumbotron {\r\n            margin-bottom: 0;\r\n        }\r\n\r\n        /* Add a gray background color and some padding to the footer */\r\n        footer {\r\n            background-color: #eeeeee;\r\n            padding: 25px;\r\n        }\r\n\r\n        /* Custom panel primary color */\r\n        .panel-primary > .panel-heading {\r\n            background-color: #1e1e1e !important; /* Change this to black */\r\n            border-color: #1e1e1e !important; /* Change this to black */\r\n        }\r\n        .panel-primary {\r\n            border-color: #1e1e1e !important; /* Change this to black */\r\n        }\r\n\r\n        /* Custom CSS to align text to bottom right corner */\r\n        .panel-footer {\r\n            position: relative;\r\n        }\r\n        .panel-footer .text-right {\r\n            position: absolute;\r\n            bottom: 10px;\r\n            right: 10px;\r\n        }\r\n\r\n        /* Hover text effect */\r\n        .hover-container {\r\n            position: relative;\r\n            display: inline-block;\r\n        }\r\n\r\n        .hover-container .hover-text {\r\n            visibility: hidden;\r\n            width: 200px; /* Adjust width as needed */\r\n            background-color: #555;\r\n            color: #fff;\r\n            text-align: center;\r\n            border-radius: 5px;\r\n            padding: 10px;\r\n            position: absolute;\r\n            z-index: 1;\r\n            bottom: 125%; /* Position the text above the container */\r\n            left: 50%;\r\n            margin-left: -100px; /* Adjust to center text */\r\n            opacity: 0;\r\n            transition: opacity 0.3s;\r\n            white-space: nowrap; /* Prevent text from wrapping */\r\n        }\r\n\r\n        .hover-container:hover .hover-text {\r\n            visibility: visible;\r\n            opacity: 1;\r\n        }\r\n\r\n        /* Custom styling for hover effect in navbar */\r\n        .nav li {\r\n            position: relative;\r\n        }\r\n        .nav li .hover-text {\r\n            display: none;\r\n        }\r\n        .nav li:hover .hover-text {\r\n            display: block;\r\n            position: absolute;\r\n            bottom: -30px; /* Adjust based on your design */\r\n            left: 0;\r\n            background-color: #555;\r\n            color: #fff;\r\n            padding: 5px;\r\n            border-radius: 5px;\r\n        }\r\n    </style>\r\n    <meta charset=\"utf-8\">\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\r\n    <link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css\">\r\n    <script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js\"></script>\r\n    <script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js\"></script>\r\n</head>\r\n<body>\r\n\r\n<div class=\"jumbotron\">\r\n    <div class=\"container text-center\">\r\n        <h1>Pizza Paradiso</h1>\r\n        <p>Tasty, Fast & Convenient</p>\r\n\r\n\r\n        <nav class=\"navbar navbar-inverse\">\r\n            <div class=\"container-fluid\">\r\n                <div class=\"navbar-header\">\r\n                    <a class=\"navbar-brand\" href=\"#\">Pizza Paradiso</a>\r\n                </div>\r\n                <ul class=\"nav navbar-nav\">\r\n                    <li class=\"active\"><a href=\"#\">Home</a></li>\r\n                    <li><a href=\"{% url 'all_products' %}\">All Products</a></li>\r\n                    <li><a href=\"{% url 'about_us' %}\">About Us</a></li>\r\n                    <li class=\"hover-container\">\r\n                        <a href=\"#\">Contact</a>\r\n                        <div class=\"hover-text\">\r\n                            Phone: +374 55 00-00-00\r\n                        </div>\r\n                    </li>\r\n                </ul>\r\n                <form class=\"navbar-form navbar-left\" action=\"/action_page.php\">\r\n                    <div class=\"input-group\">\r\n                        <input type=\"text\" class=\"form-control\" placeholder=\"Search\" name=\"search\">\r\n                        <div class=\"input-group-btn\">\r\n                            <button class=\"btn btn-default\" type=\"submit\">\r\n                                <i class=\"glyphicon glyphicon-search\"></i>\r\n                            </button>\r\n                        </div>\r\n                    </div>\r\n                </form>\r\n            </div>\r\n        </nav>\r\n    </div>\r\n    <div class=\"container\">\r\n        <div class=\"row\">\r\n            {% block content %}\r\n            {% for pizza in pizzas %}\r\n            <div class=\"col-sm-4\">\r\n                <div class=\"panel panel-primary\">\r\n                    <div class=\"panel-heading\">\r\n                        <a href=\"{% url 'pizza_detail' pizza.id %}\" style=\"color: white;\">{{ pizza.name }}</a>\r\n                    </div>\r\n                    <div class=\"panel-body\">\r\n                        {% if pizza.image %}\r\n                        {% load static %}\r\n                        <img src=\"{{ pizza.image.url }}\"\r\n                             alt=\"{{ pizza.name }}\"\r\n                             style=\"width:100%\">\r\n                        {% else %}\r\n                        <img alt=\"Image\" class=\"img-responsive\" src=\"https://placehold.it/150x80?text=IMAGE\"\r\n                             style=\"width:100%\">\r\n                        {% endif %}\r\n                    </div>\r\n                    <div class=\"panel-footer\">\r\n                        Price: {{ pizza.price }} AMD\r\n                        <div class=\"text-right\">\r\n                            Score: {{ pizza.score }}\r\n                        </div>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n            {% endfor %}\r\n            {% endblock content %}\r\n        </div>\r\n    </div>\r\n\r\n    <br><br>\r\n\r\n    <footer class=\"container-fluid text-center\">\r\n        <p>Wanna become a member?</p>\r\n        <form class=\"form-inline\">:\r\n            <input class=\"form-control\" placeholder=\"Email Address\" size=\"50\" type=\"email\">\r\n            <button class=\"btn btn-danger\" type=\"button\">Sign Up</button>\r\n        </form>\r\n    </footer>\r\n</div>\r\n</body>\r\n</html>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Pizzeria_website/templates/pizzas/home.html b/Pizzeria_website/templates/pizzas/home.html
+--- a/Pizzeria_website/templates/pizzas/home.html	(revision 978f4274517fe9b7c4d4dcb8e78b33e9b745d6f9)
++++ b/Pizzeria_website/templates/pizzas/home.html	(date 1723281934707)
+@@ -1,7 +1,7 @@
+ <!DOCTYPE html>
+-<html lang="en">
++<html lang="en" xmlns="http://www.w3.org/1999/html">
+ <head>
+-    <title>Pizza Paradiso</title>
++    <title>Pizzeria</title>
+     <meta charset="utf-8">
+     <meta content="width=device-width, initial-scale=1" name="viewport">
+     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
+@@ -90,6 +90,16 @@
+             padding: 5px;
+             border-radius: 5px;
+         }
++        .pagination {
++            display: inline-block;
++        }
++
++        .pagination a {
++            color: black;
++            float: left;
++            padding: 8px 16px;
++            text-decoration: none;
++        }
+     </style>
+     <meta charset="utf-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+@@ -98,7 +108,8 @@
+     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+ </head>
+ <body>
+-
++{% block c1 %}
++{% for contact in page_obj %}
+ <div class="jumbotron">
+     <div class="container text-center">
+         <h1>Pizza Paradiso</h1>
+@@ -170,12 +181,33 @@
+     <br><br>
+ 
+     <footer class="container-fluid text-center">
+-        <p>Wanna become a member?</p>
+-        <form class="form-inline">:
++        <p>Online Store Copyright</p>
++        <form class="form-inline">Get deals:
+             <input class="form-control" placeholder="Email Address" size="50" type="email">
+             <button class="btn btn-danger" type="button">Sign Up</button>
+         </form>
+     </footer>
++</div>
++{% endfor %}
++{% endblock c1 %}
++<div style="text-align: center;">
++    <div class="pagination">
++    <span class="step-links">
++        {% if page_obj.has_previous %}
++            <a href="?page=1">&laquo; first</a>
++            <a href="?page={{ page_obj.previous_page_number }}">previous</a>
++        {% endif %}
++
++        <span class="current">
++            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
++        </span>
++
++        {% if page_obj.has_next %}
++            <a href="?page={{ page_obj.next_page_number }}">next</a>
++            <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
++        {% endif %}
++    </span>
++    </div>
+ </div>
+ </body>
+ </html>
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"862bbde7-d82c-4c6b-91ae-f79e016fc1f0\" name=\"Changes\" comment=\"\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/Pizzeria_website/db.sqlite3\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/Pizzeria_website/db.sqlite3\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/Pizzeria_website/pizzas/admin.py\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/Pizzeria_website/pizzas/admin.py\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/Pizzeria_website/pizzas/models.py\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/Pizzeria_website/pizzas/models.py\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/Pizzeria_website/pizzas/urls.py\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/Pizzeria_website/pizzas/urls.py\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/Pizzeria_website/pizzas/views.py\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/Pizzeria_website/pizzas/views.py\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/Pizzeria_website/templates/pizzas/description.html\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/Pizzeria_website/templates/pizzas/description.html\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/Pizzeria_website/templates/pizzas/home.html\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/Pizzeria_website/templates/pizzas/home.html\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Python Script\" />\r\n        <option value=\"HTML File\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"PUSH_TAGS\">\r\n      <GitPushTagMode>\r\n        <option name=\"argument\" value=\"--tags\" />\r\n        <option name=\"title\" value=\"All\" />\r\n      </GitPushTagMode>\r\n    </option>\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"GithubDefaultAccount\">\r\n    <option name=\"defaultAccountId\" value=\"73e51ce2-7c15-4040-b19f-c96b4adce49e\" />\r\n  </component>\r\n  <component name=\"ProjectColorInfo\">{\r\n  &quot;associatedIndex&quot;: 4\r\n}</component>\r\n  <component name=\"ProjectId\" id=\"2kKx9vov9AGZFJC9aKovVpuZOLq\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">{\r\n  &quot;keyToString&quot;: {\r\n    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,\r\n    &quot;Python.settings.executor&quot;: &quot;Run&quot;,\r\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\r\n    &quot;git-widget-placeholder&quot;: &quot;master&quot;,\r\n    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,\r\n    &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;\r\n  }\r\n}</component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"MoveFile.RECENT_KEYS\">\r\n      <recent name=\"C:\\Users\\user\\PycharmProjects\\Pizzeria_website\\Pizzeria_website\\media\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"862bbde7-d82c-4c6b-91ae-f79e016fc1f0\" name=\"Changes\" comment=\"\" />\r\n      <created>1723045922022</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1723045922022</updated>\r\n    </task>\r\n    <servers />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"RECENT_FILTERS\">\r\n      <map>\r\n        <entry key=\"User\">\r\n          <value>\r\n            <list>\r\n              <RecentGroup>\r\n                <option name=\"FILTER_VALUES\">\r\n                  <option value=\"*\" />\r\n                </option>\r\n              </RecentGroup>\r\n            </list>\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 978f4274517fe9b7c4d4dcb8e78b33e9b745d6f9)
++++ b/.idea/workspace.xml	(date 1723281757696)
+@@ -5,11 +5,11 @@
+   </component>
+   <component name="ChangeListManager">
+     <list default="true" id="862bbde7-d82c-4c6b-91ae-f79e016fc1f0" name="Changes" comment="">
++      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/Pizzeria_website/Pizzeria_website/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/Pizzeria_website/Pizzeria_website/settings.py" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/Pizzeria_website/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/Pizzeria_website/db.sqlite3" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/Pizzeria_website/pizzas/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/Pizzeria_website/pizzas/admin.py" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/Pizzeria_website/pizzas/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/Pizzeria_website/pizzas/models.py" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/Pizzeria_website/pizzas/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Pizzeria_website/pizzas/urls.py" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/Pizzeria_website/pizzas/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Pizzeria_website/pizzas/views.py" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/Pizzeria_website/templates/pizzas/description.html" beforeDir="false" afterPath="$PROJECT_DIR$/Pizzeria_website/templates/pizzas/description.html" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/Pizzeria_website/templates/pizzas/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/Pizzeria_website/templates/pizzas/home.html" afterDir="false" />
+@@ -35,9 +35,6 @@
+       </GitPushTagMode>
+     </option>
+     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+-  </component>
+-  <component name="GithubDefaultAccount">
+-    <option name="defaultAccountId" value="73e51ce2-7c15-4040-b19f-c96b4adce49e" />
+   </component>
+   <component name="ProjectColorInfo">{
+   &quot;associatedIndex&quot;: 4
+Index: Pizzeria_website/Pizzeria_website/settings.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>\"\"\"\r\nDjango settings for Pizzeria_website project.\r\n\r\nGenerated by 'django-admin startproject' using Django 5.1.\r\n\r\nFor more information on this file, see\r\nhttps://docs.djangoproject.com/en/5.1/topics/settings/\r\n\r\nFor the full list of settings and their values, see\r\nhttps://docs.djangoproject.com/en/5.1/ref/settings/\r\n\"\"\"\r\n\r\nfrom pathlib import Path\r\n\r\n# Build paths inside the project like this: BASE_DIR / 'subdir'.\r\nBASE_DIR = Path(__file__).resolve().parent.parent\r\nTEMPLATES_DIR = BASE_DIR / \"templates\"\r\n\r\n# Quick-start development settings - unsuitable for production\r\n# See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/\r\n\r\n# SECURITY WARNING: keep the secret key used in production secret!\r\nSECRET_KEY = 'django-insecure-qch7zw6w+hevvo*+pkjafl(m%k_wn#d8+9s82#7wp-b+=x97yt'\r\n\r\n# SECURITY WARNING: don't run with debug turned on in production!\r\nDEBUG = True\r\n\r\nALLOWED_HOSTS = []\r\n\r\n\r\n# Application definition\r\n\r\nINSTALLED_APPS = [\r\n    'django.contrib.admin',\r\n    'django.contrib.auth',\r\n    'django.contrib.contenttypes',\r\n    'django.contrib.sessions',\r\n    'django.contrib.messages',\r\n    'django.contrib.staticfiles',\r\n    'pizzas.apps.PizzasConfig'\r\n]\r\n\r\nMIDDLEWARE = [\r\n    'django.middleware.security.SecurityMiddleware',\r\n    'django.contrib.sessions.middleware.SessionMiddleware',\r\n    'django.middleware.common.CommonMiddleware',\r\n    'django.middleware.csrf.CsrfViewMiddleware',\r\n    'django.contrib.auth.middleware.AuthenticationMiddleware',\r\n    'django.contrib.messages.middleware.MessageMiddleware',\r\n    'django.middleware.clickjacking.XFrameOptionsMiddleware',\r\n]\r\n\r\nROOT_URLCONF = 'Pizzeria_website.urls'\r\n\r\nTEMPLATES = [\r\n    {\r\n        'BACKEND': 'django.template.backends.django.DjangoTemplates',\r\n        'DIRS': [TEMPLATES_DIR],\r\n        'APP_DIRS': True,\r\n        'OPTIONS': {\r\n            'context_processors': [\r\n                'django.template.context_processors.debug',\r\n                'django.template.context_processors.request',\r\n                'django.contrib.auth.context_processors.auth',\r\n                'django.contrib.messages.context_processors.messages',\r\n            ],\r\n        },\r\n    },\r\n]\r\n\r\nWSGI_APPLICATION = 'Pizzeria_website.wsgi.application'\r\n\r\n\r\n# Database\r\n# https://docs.djangoproject.com/en/5.1/ref/settings/#databases\r\n\r\nDATABASES = {\r\n    'default': {\r\n        'ENGINE': 'django.db.backends.sqlite3',\r\n        'NAME': BASE_DIR / 'db.sqlite3',\r\n    }\r\n}\r\n\r\n\r\n# Password validation\r\n# https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators\r\n\r\nAUTH_PASSWORD_VALIDATORS = [\r\n    {\r\n        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',\r\n    },\r\n    {\r\n        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',\r\n    },\r\n    {\r\n        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',\r\n    },\r\n    {\r\n        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',\r\n    },\r\n]\r\n\r\n\r\n# Internationalization\r\n# https://docs.djangoproject.com/en/5.1/topics/i18n/\r\n\r\nLANGUAGE_CODE = 'en-us'\r\n\r\nTIME_ZONE = 'UTC'\r\n\r\nUSE_I18N = True\r\n\r\nUSE_TZ = True\r\n\r\n\r\n# Static files (CSS, JavaScript, Images)\r\n# https://docs.djangoproject.com/en/5.1/howto/static-files/\r\n\r\nSTATIC_URL = 'static/'\r\nSTATIC_ROOT = \"/var/www/pizza_web.com/static/\"\r\nSTATICFILES_DIRS = [\r\n    BASE_DIR / \"static\",\r\n    \"/var/www/static/\",\r\n]\r\nMEDIA_URL = 'media/'\r\nMEDIA_ROOT = BASE_DIR / 'media'\r\nprint(MEDIA_ROOT)\r\n# Default primary key field type\r\n# https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field\r\n\r\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Pizzeria_website/Pizzeria_website/settings.py b/Pizzeria_website/Pizzeria_website/settings.py
+--- a/Pizzeria_website/Pizzeria_website/settings.py	(revision 978f4274517fe9b7c4d4dcb8e78b33e9b745d6f9)
++++ b/Pizzeria_website/Pizzeria_website/settings.py	(date 1723277373719)
+@@ -124,7 +124,6 @@
+ ]
+ MEDIA_URL = 'media/'
+ MEDIA_ROOT = BASE_DIR / 'media'
+-print(MEDIA_ROOT)
+ # Default primary key field type
+ # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
+ 
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"Black\">\r\n    <option name=\"sdkName\" value=\"Python 3.12 (Pizzeria_website)\" />\r\n  </component>\r\n  <component name=\"ProjectRootManager\" version=\"2\" project-jdk-name=\"Python 3.12 (Pizzeria_website)\" project-jdk-type=\"Python SDK\" />\r\n  <component name=\"PyCharmProfessionalAdvertiser\">\r\n    <option name=\"shown\" value=\"true\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+--- a/.idea/misc.xml	(revision 978f4274517fe9b7c4d4dcb8e78b33e9b745d6f9)
++++ b/.idea/misc.xml	(date 1723276589557)
+@@ -3,7 +3,7 @@
+   <component name="Black">
+     <option name="sdkName" value="Python 3.12 (Pizzeria_website)" />
+   </component>
+-  <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.12 (Pizzeria_website)" project-jdk-type="Python SDK" />
++  <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.11" project-jdk-type="Python SDK" />
+   <component name="PyCharmProfessionalAdvertiser">
+     <option name="shown" value="true" />
+   </component>
+Index: Pizzeria_website/pizzas/models.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>from django.db import models\r\n\r\n\r\nclass DoughType(models.Model):\r\n    dough = models.CharField(max_length=20, db_index=True, verbose_name=\"Dough type\")\r\n\r\n    def __str__(self):\r\n        return self.dough\r\n\r\n\r\nclass Pizza(models.Model):\r\n    name = models.CharField(max_length=50)\r\n    price = models.PositiveIntegerField()\r\n    score = models.FloatField()\r\n    details = models.TextField(max_length=300)\r\n    image = models.ImageField(null=True, blank=True)\r\n\r\n    category = models.ForeignKey('DoughType', null=True,\r\n                                 on_delete=models.PROTECT, verbose_name=\"Dough\")\r\n\r\n    def __str__(self):\r\n        return f\"Pizza {self.name}\"\r\n\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Pizzeria_website/pizzas/models.py b/Pizzeria_website/pizzas/models.py
+--- a/Pizzeria_website/pizzas/models.py	(revision 978f4274517fe9b7c4d4dcb8e78b33e9b745d6f9)
++++ b/Pizzeria_website/pizzas/models.py	(date 1723278146140)
+@@ -22,3 +22,8 @@
+         return f"Pizza {self.name}"
+ 
+ 
++class Keyword(models.Model):
++    name = models.CharField(max_length=30)
++
++    def __str__(self):
++        return self.name
+Index: Pizzeria_website/templates/pizzas/description.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><!DOCTYPE html>\r\n<html lang=\"en\">\r\n<head>\r\n    <title>Pizza Paradiso</title>\r\n    <meta charset=\"utf-8\">\r\n    <meta content=\"width=device-width, initial-scale=1\" name=\"viewport\">\r\n    <link href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css\" rel=\"stylesheet\">\r\n    <script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js\"></script>\r\n    <script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js\"></script>\r\n    <style>\r\n        <style>\r\n        /* Remove the navbar's default rounded borders and increase the bottom margin */\r\n        .navbar {\r\n          margin-bottom: 50px;\r\n          border-radius: 0;\r\n        }\r\n\r\n        /* Remove the jumbotron's default bottom margin */\r\n        .jumbotron {\r\n          margin-bottom: 0;\r\n        }\r\n\r\n        /* Add a gray background color and some padding to the footer */\r\n        footer {\r\n          background-color: #f2f2f2;\r\n          padding: 25px;\r\n        }\r\n\r\n        /* Custom panel primary color */\r\n        .panel-primary > .panel-heading {\r\n          background-color: #000000; /* Change this to your desired color */\r\n          border-color: #000000; /* Change this to your desired color */\r\n        }\r\n        .panel-primary {\r\n          border-color: #000000; /* Change this to your desired color */\r\n        }\r\n    </style>\r\n    <meta charset=\"utf-8\">\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\r\n    <link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css\">\r\n    <script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js\"></script>\r\n    <script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js\"></script>\r\n</head>\r\n<body>\r\n<nav class=\"navbar navbar-inverse\">\r\n    <div class=\"container-fluid\">\r\n        <div class=\"navbar-header\">\r\n            <button class=\"navbar-toggle\" data-target=\"#myNavbar\" data-toggle=\"collapse\" type=\"button\">\r\n                <span class=\"icon-bar\"></span>\r\n                <span class=\"icon-bar\"></span>\r\n                <span class=\"icon-bar\"></span>\r\n            </button>\r\n            <a class=\"navbar-brand\" href=\"#\">Pizza Paradiso</a>\r\n        </div>\r\n        <div class=\"collapse navbar-collapse\" id=\"myNavbar\">\r\n            <ul class=\"nav navbar-nav\">\r\n                <li class=\"active\"><a href=\"{% url 'home'%}\">Home</a></li>\r\n                <li><a href=\"{% url 'all_products' %}\">All Products</a></li>\r\n            </ul>\r\n            <ul class=\"nav navbar-nav navbar-right\">\r\n                <li><a href=\"#\"><span class=\"glyphicon glyphicon-user\"></span> Your Account</a></li>\r\n                <li><a href=\"#\"><span class=\"glyphicon glyphicon-shopping-cart\"></span> Cart</a></li>\r\n            </ul>\r\n        </div>\r\n    </div>\r\n</nav>\r\n<div class=\"container\">\r\n    <table class=\"table\">\r\n        <thead>\r\n        <tr>\r\n            <th>{{pizza.name}}</th>\r\n        </tr>\r\n        </thead>\r\n        <tbody>\r\n        <tr>\r\n            <td>{{pizza.details}}</td>\r\n        </tr>\r\n        {% block content %}\r\n        {% if pizza.score >= 7 and pizza.score < 9 %}\r\n            <tr class=\"warning\">\r\n                <td>Score: {{pizza.score}}</td>\r\n            </tr>\r\n        {% elif pizza.score >= 9 %}\r\n            <tr class=\"success\">\r\n                <td>Score: {{pizza.score}}</td>\r\n            </tr>\r\n        {% elif pizza.score < 7 %}\r\n            <tr class=\"danger\">\r\n                <td>Score: {{pizza.score}}</td>\r\n            </tr>\r\n        {% endif %}\r\n        {% endblock content%}\r\n        <tr class=\"info\">\r\n            <td>Price: {{pizza.price}} AMD</td>\r\n        </tr>\r\n        <tr class=\"info\">\r\n            <td>Dough Type: {{pizza.category}}</td>\r\n        </tr>\r\n        </tbody>\r\n    </table>\r\n</div>\r\n</body>\r\n</html>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Pizzeria_website/templates/pizzas/description.html b/Pizzeria_website/templates/pizzas/description.html
+--- a/Pizzeria_website/templates/pizzas/description.html	(revision 978f4274517fe9b7c4d4dcb8e78b33e9b745d6f9)
++++ b/Pizzeria_website/templates/pizzas/description.html	(date 1723278963811)
+@@ -1,7 +1,7 @@
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+-    <title>Pizza Paradiso</title>
++    <title>Pizzeria</title>
+     <meta charset="utf-8">
+     <meta content="width=device-width, initial-scale=1" name="viewport">
+     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
+@@ -35,6 +35,7 @@
+           border-color: #000000; /* Change this to your desired color */
+         }
+     </style>
++    <title>Bootstrap Example</title>
+     <meta charset="utf-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+@@ -55,7 +56,10 @@
+         <div class="collapse navbar-collapse" id="myNavbar">
+             <ul class="nav navbar-nav">
+                 <li class="active"><a href="{% url 'home'%}">Home</a></li>
+-                <li><a href="{% url 'all_products' %}">All Products</a></li>
++                <li><a href="#">Products</a></li>
++                <li><a href="#">Deals</a></li>
++                <li><a href="#">Stores</a></li>
++                <li><a href="#">Contact</a></li>
+             </ul>
+             <ul class="nav navbar-nav navbar-right">
+                 <li><a href="#"><span class="glyphicon glyphicon-user"></span> Your Account</a></li>
+@@ -91,10 +95,10 @@
+         {% endif %}
+         {% endblock content%}
+         <tr class="info">
+-            <td>Price: {{pizza.price}} AMD</td>
++            <td>Price: {{pizza.price}}</td>
+         </tr>
+         <tr class="info">
+-            <td>Dough Type: {{pizza.category}}</td>
++            <td>Dough: {{pizza.dough}}</td>
+         </tr>
+         </tbody>
+     </table>
+Index: Pizzeria_website/pizzas/views.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>from django.shortcuts import render, get_object_or_404\r\n\r\nfrom .models import Pizza\r\n\r\n\r\ndef home(requests):\r\n    context = {\r\n        'pizzas': Pizza.objects.all()\r\n    }\r\n    return render(requests, 'pizzas/home.html', context)\r\n\r\n\r\ndef pizza_detail(request, id):\r\n    pizza = get_object_or_404(Pizza, id=id)\r\n    return render(request, 'pizzas/description.html', {'pizza': pizza})\r\n\r\n\r\ndef about_us(request):\r\n    return render(request, 'pizzas/about_us_page.html')\r\n\r\n\r\ndef our_products(request):\r\n    context = {\r\n        'pizzas': Pizza.objects.all()\r\n    }\r\n    return render(request, 'pizzas/all_products.html', context)\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Pizzeria_website/pizzas/views.py b/Pizzeria_website/pizzas/views.py
+--- a/Pizzeria_website/pizzas/views.py	(revision 978f4274517fe9b7c4d4dcb8e78b33e9b745d6f9)
++++ b/Pizzeria_website/pizzas/views.py	(date 1723281509009)
+@@ -1,12 +1,24 @@
+ from django.shortcuts import render, get_object_or_404
++from django.core.paginator import Paginator
++from django.views.generic import ListView
+ 
++# from .models import Contact
+ from .models import Pizza
+ 
+ 
++def listing(request):
++    paginator = Paginator(Pizza.objects.all(), 2)
++
++    page_number = request.GET.get("page")
++    page_obj = paginator.get_page(page_number)
++    return render(request, "pizzas/home.html", {"page_obj": page_obj})
++
++
+ def home(requests):
+     context = {
+         'pizzas': Pizza.objects.all()
+     }
++
+     return render(requests, 'pizzas/home.html', context)
+ 
+ 

@@ -54,7 +54,7 @@
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav">
-                <li><a href="{% url 'home_pizzas'%}">Home</a></li>
+                <li><a href="{% url home %}">Home</a></li>
                 <li><a href="{% url 'all_products' %}">All Products</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
@@ -68,56 +68,60 @@
     <table class="table">
         <thead>
         <tr>
-            <th>{{pizza.name}}</th>
+            <th>{{product.name}}</th>
         </tr>
         </thead>
         <tbody>
         <tr>
-            <td>{{pizza.details}}</td>
+            <td>{{product.details}}</td>
         </tr>
         {% block content %}
-        {% if pizza.score >= 7 and pizza.score < 9 %}
+        {% if product.score >= 7 and product.score < 9 %}
         <tr class="warning">
-            <td>Score: {{pizza.score}}</td>
+            <td>Score: {{product.score}}</td>
         </tr>
-        {% elif pizza.score >= 9 %}
+        {% elif product.score >= 9 %}
         <tr class="success">
-            <td>Score: {{pizza.score}}</td>
+            <td>Score: {{product.score}}</td>
         </tr>
-        {% elif pizza.score < 7 %}
+        {% elif product.score < 7 %}
         <tr class="danger">
-            <td>Score: {{pizza.score}}</td>
+            <td>Score: {{product.score}}</td>
         </tr>
         {% endif %}
         {% endblock content%}
         <tr class="info">
-            <td>Price: {{pizza.price}} AMD</td>
+            <td>Price: {{product.price}} AMD</td>
         </tr>
         <tr class="info">
-            <td>Dough Type: {{pizza.category}}</td>
+            <td>Type: {{product.category}}</td>
         </tr>
         </tbody>
     </table>
     <div style="text-align: center;">
         {% load static %}
-        <img src="{{ pizza.image.url }}"
-             alt="{{ pizza.name }}"
+        <img src="{{ product.image.url }}"
+             alt="{{ product.name }}"
              style="width:100%">
     </div>
-    <h1><b>Similar Pizzas</b></h1>
-    {% for other_pizza in pizzas %}
-    {% if other_pizza.name != pizza.name and other_pizza.category == pizza.category%}
-    {% if other_pizza.price > lower_price and other_pizza.price < upper_price%}
+    <h1><b>Similar Products</b></h1>
+    {% for other_product in products %}
+    {% if other_product.name != product.name and other_product.category == product.category %}
+    {% if other_product.price > lower_price and other_product.price < upper_price %}
     <div class="col-sm-4">
         <div class="panel panel-primary" style="style=“background-color:black;”">
             <div class="panel-heading">
-                <a href="{% url 'pizza_detail' other_pizza.id %}" style="color: white;">{{ other_pizza.name }}</a>
+                {% if pr == 'pizza'%}
+                <a href="{% url 'pizza_detail' other_product.id %}" style="color: white;">{{ other_product.name }}</a>
+                {% elif pr == 'burger'%}
+                <a href="{% url 'burger_detail' other_product.id %}" style="color: white;">{{ other_product.name }}</a>
+                {% endif %}
             </div>
             <div class="panel-body">
-                {% if other_pizza.image %}
+                {% if other_product.image %}
                 {% load static %}
-                <img src="{{ other_pizza.image.url }}"
-                     alt="{{ other_pizza.name }}"
+                <img src="{{ other_product.image.url }}"
+                     alt="{{ other_product.name }}"
                      style="width:100%">
                 {% else %}
                 <img alt="Image" class="img-responsive" src="https://placehold.it/150x80?text=IMAGE"
@@ -125,9 +129,9 @@
                 {% endif %}
             </div>
             <div class="panel-footer">
-                Price: {{ other_pizza.price }} AMD
+                Price: {{ other_product.price }} AMD
                 <div class="text-right">
-                    Score: {{ other_pizza.score }}
+                    Score: {{ other_product.score }}
                 </div>
             </div>
         </div>
@@ -135,6 +139,8 @@
     {% endif %}
     {% endif %}
     {% endfor %}
+    <p></p>
+
 </div>
 </body>
 </html>
