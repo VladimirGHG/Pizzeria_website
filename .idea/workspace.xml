@@ -5,26 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="862bbde7-d82c-4c6b-91ae-f79e016fc1f0" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Pizzeria_website/media/325492468_871988134136595_3371874748466832721_n.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Pizzeria_website/media/360_F_279764101_ai492SXhESzs6f3eQa1YgGTQerKazSlQ.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Pizzeria_website/media/360_F_279764101_ai492SXhESzs6f3eQa1YgGTQerKazSlQ_d84SPOv.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Pizzeria_website/pizzas/migrations/0007_rename_details_b_burger_details_and_more.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Pizzeria_website/pizzas/migrations/0008_alter_meatroast_meat_roast_level.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Pizzeria_website/pizzas/migrations/0009_restaurants.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Pizzeria_website/pizzas/migrations/0010_restaurants_logo.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Pizzeria_website/templates/pizzas/companies.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_10_2024_11_16_AM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_10_2024_11_16_AM__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_12_2024_8_56_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_12_2024_8_56_PM__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_12_2024_9_00_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_12_2024_9_00_PM__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_12_2024_9_05_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_12_2024_9_05_PM__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_15_2024_11_00_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_15_2024_11_00_PM__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pizzeria_website/Pizzeria_website/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/Pizzeria_website/Pizzeria_website/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Pizzeria_website/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/Pizzeria_website/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pizzeria_website/pizzas/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/Pizzeria_website/pizzas/admin.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Pizzeria_website/pizzas/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/Pizzeria_website/pizzas/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Pizzeria_website/pizzas/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Pizzeria_website/pizzas/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Pizzeria_website/pizzas/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Pizzeria_website/pizzas/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pizzeria_website/templates/pizzas/burgers_home.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Pizzeria_website/templates/pizzas/description.html" beforeDir="false" afterPath="$PROJECT_DIR$/Pizzeria_website/templates/pizzas/description.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Pizzeria_website/templates/pizzas/main_website_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/Pizzeria_website/templates/pizzas/main_website_page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pizzeria_website/templates/pizzas/pizzas_home.html" beforeDir="false" afterPath="$PROJECT_DIR$/Pizzeria_website/templates/pizzas/products_home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pizzeria_website/templates/pizzas/products_home.html" beforeDir="false" afterPath="$PROJECT_DIR$/Pizzeria_website/templates/pizzas/products_home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pizzeria_website/templates/pizzas/search_pizzas.html" beforeDir="false" afterPath="$PROJECT_DIR$/Pizzeria_website/templates/pizzas/search_pizzas.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

@@ -8,38 +8,44 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <style>
-        <style>
         /* Remove the navbar's default rounded borders and increase the bottom margin */
         .navbar {
-          margin-bottom: 50px;
-          border-radius: 0;
+            margin-bottom: 50px;
+            border-radius: 0;
         }
 
         /* Remove the jumbotron's default bottom margin */
         .jumbotron {
-          margin-bottom: 0;
+            margin-bottom: 0;
         }
 
         /* Add a gray background color and some padding to the footer */
         footer {
-          background-color: #f2f2f2;
-          padding: 25px;
+            background-color: #f2f2f2;
+            padding: 25px;
         }
 
         /* Custom panel primary color */
         .panel-primary > .panel-heading {
-          background-color: #000000; /* Change this to your desired color */
-          border-color: #000000; /* Change this to your desired color */
+            background-color: #000000; /* Change this to your desired color */
+            border-color: #000000; /* Change this to your desired color */
         }
         .panel-primary {
-          border-color: #000000; /* Change this to your desired color */
+            border-color: #000000; /* Change this to your desired color */
+        }
+
+        /* Ensure similar products and restaurants are aligned */
+        .similar-products,
+        .restaurants-with {
+            margin-top: 50px;
+        }
+
+        /* Make images responsive */
+        img {
+            width: 100%;
+            height: auto;
         }
     </style>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 <body>
 <nav class="navbar navbar-inverse">
@@ -64,83 +70,103 @@
         </div>
     </div>
 </nav>
+
 <div class="container">
     <table class="table">
         <thead>
         <tr>
-            <th>{{product.name}}</th>
+            <th>{{ product.name }}</th>
         </tr>
         </thead>
         <tbody>
         <tr>
-            <td>{{product.details}}</td>
+            <td>{{ product.details }}</td>
         </tr>
         {% block content %}
         {% if product.score >= 7 and product.score < 9 %}
         <tr class="warning">
-            <td>Score: {{product.score}}</td>
+            <td>Score: {{ product.score }}</td>
         </tr>
         {% elif product.score >= 9 %}
         <tr class="success">
-            <td>Score: {{product.score}}</td>
+            <td>Score: {{ product.score }}</td>
         </tr>
         {% elif product.score < 7 %}
         <tr class="danger">
-            <td>Score: {{product.score}}</td>
+            <td>Score: {{ product.score }}</td>
         </tr>
         {% endif %}
-        {% endblock content%}
+        {% endblock content %}
         <tr class="info">
-            <td>Price: {{product.price}} AMD</td>
+            <td>Price: {{ product.price }} AMD</td>
         </tr>
         <tr class="info">
-            <td>Type: {{product.category}}</td>
+            <td>Type: {{ product.category }}</td>
         </tr>
         </tbody>
     </table>
+
     <div style="text-align: center;">
-        {% load static %}
-        <img src="{{ product.image.url }}"
-             alt="{{ product.name }}"
-             style="width:100%">
+        <img src="{{ product.image.url }}" alt="{{ product.name }}">
     </div>
+
     <h1><b>Similar Products</b></h1>
-    {% for other_product in products %}
-    {% if other_product.name != product.name and other_product.category == product.category %}
-    {% if other_product.price > lower_price and other_product.price < upper_price %}
-    <div class="col-sm-4">
-        <div class="panel panel-primary" style="style=“background-color:black;”">
-            <div class="panel-heading">
-                {% if pr == 'pizza'%}
-                <a href="{% url 'pizza_detail' other_product.id %}" style="color: white;">{{ other_product.name }}</a>
-                {% elif pr == 'burger'%}
-                <a href="{% url 'burger_detail' other_product.id %}" style="color: white;">{{ other_product.name }}</a>
-                {% endif %}
-            </div>
-            <div class="panel-body">
-                {% if other_product.image %}
-                {% load static %}
-                <img src="{{ other_product.image.url }}"
-                     alt="{{ other_product.name }}"
-                     style="width:100%">
-                {% else %}
-                <img alt="Image" class="img-responsive" src="https://placehold.it/150x80?text=IMAGE"
-                     style="width:100%">
-                {% endif %}
-            </div>
-            <div class="panel-footer">
-                Price: {{ other_product.price }} AMD
-                <div class="text-right">
-                    Score: {{ other_product.score }}
+    <div class="row">
+        {% for other_product in products %}
+        {% if other_product.name != product.name and other_product.category == product.category %}
+        {% if other_product.price > lower_price and other_product.price < upper_price %}
+        <div class="col-sm-4">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    {% if pr == 'pizza' %}
+                    <a href="{% url 'pizza_detail' other_product.id %}" style="color: white;">{{ other_product.name }}</a>
+                    {% elif pr == 'burger' %}
+                    <a href="{% url 'burger_detail' other_product.id %}" style="color: white;">{{ other_product.name }}</a>
+                    {% endif %}
+                </div>
+                <div class="panel-body">
+                    {% if other_product.image %}
+                    <img src="{{ other_product.image.url }}" alt="{{ other_product.name }}">
+                    {% else %}
+                    <img src="https://placehold.it/150x80?text=IMAGE" alt="Image" class="img-responsive">
+                    {% endif %}
+                </div>
+                <div class="panel-footer">
+                    Price: {{ other_product.price }} AMD
+                    <div class="text-right">
+                        Score: {{ other_product.score }}
+                    </div>
                 </div>
             </div>
         </div>
+        {% endif %}
+        {% endif %}
+        {% endfor %}
     </div>
-    {% endif %}
-    {% endif %}
-    {% endfor %}
-    <p></p>
 
+    <div class="restaurants-with">
+        <h2><b>Restaurants with Similar Products</b></h2>
+        {% if restaurants %}
+            {% for restaurant in restaurants %}
+            <div class="col-sm-4">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <a href="{% url 'restaurant_detail' restaurant.id %}" style="color: white;">{{ restaurant }}</a>
+                    </div>
+                    <div class="panel-body">
+                    {% if restaurant.logo %}
+                    <img src="{{ restaurant.logo.url }}" alt="{{ restaurant.name }}">
+                    {% else %}
+                    <img src="https://placehold.it/150x80?text=IMAGE" alt="Image" class="img-responsive">
+                    {% endif %}
+                </div>
+                </div>
+            </div>
+            {% endfor %}
+        {% else %}
+            <h2><b>No Restaurants With This Product</b></h2>
+        {% endif %}
+    </div>
 </div>
 </body>
 </html>

@@ -51,8 +51,8 @@ class Burger(models.Model):
 class Restaurants(models.Model):
     name = models.CharField(max_length=50)
     logo = models.ImageField(null=True, blank=True)
-    burgers = models.ManyToManyField(Burger, related_name="restaurant")
-    pizzas = models.ManyToManyField(Pizza, related_name="restaurant")
+    burgers = models.ManyToManyField(Burger, related_name="restaurant", null=True, blank=True)
+    pizzas = models.ManyToManyField(Pizza, related_name="restaurant", null=True, blank=True)
 
     def __str__(self):
         return self.name
