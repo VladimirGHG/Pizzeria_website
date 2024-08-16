@@ -67,8 +67,13 @@
     <br></br>
     <h2 style="text-align: center; color: white;">Products You Can get right NOW!</h2>
     {% block content %}
+    <p><b style="color: white;">Pizzas</b></p>
     {% for pizza in pizzas %}
     <a href="{% url 'pizza_detail' pizza.id %}">{{pizza.name}}</a><br></br>
+    {% endfor %}
+    <p><b style="color: white;">Burgers</b></p>
+    {% for burger in burgers %}
+    <a href="{% url 'burger_detail' burger.id %}">{{burger.name}}</a><br></br>
     {% endfor %}
     {% endblock content %}
 </div>

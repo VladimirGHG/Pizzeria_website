@@ -28,7 +28,8 @@ def about_us(request):
 
 def our_products(request):
     context = {
-        'pizzas': Pizza.objects.all()
+        'pizzas': Pizza.objects.all(),
+        'burgers': Burger.objects.all()
     }
     return render(request, 'pizzas/all_products.html', context)
 
