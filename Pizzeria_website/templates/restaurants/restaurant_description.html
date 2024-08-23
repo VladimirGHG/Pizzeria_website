@@ -1,3 +1,4 @@
+{% extends 'pizzas/nav_bar.html' %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -48,28 +49,7 @@
     </style>
 </head>
 <body>
-<nav class="navbar navbar-inverse">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <button class="navbar-toggle" data-target="#myNavbar" data-toggle="collapse" type="button">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#">Pizza Paradiso</a>
-        </div>
-        <div class="collapse navbar-collapse" id="myNavbar">
-            <ul class="nav navbar-nav">
-                <li><a href="{% url 'home_restaurants' %}">Home</a></li>
-                <li><a href="{% url 'all_products' %}">All Products</a></li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="#"><span class="glyphicon glyphicon-user"></span> Your Account</a></li>
-                <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
-            </ul>
-        </div>
-    </div>
-</nav>
+{% block content %}
 <div class="container">
     <table class="table">
         <thead>
@@ -84,7 +64,6 @@
     </div>
     <br></br>
     <div>
-        {% block content %}
         <p><b>Burgers ({{ restaurant.burgers.count }})</b></p>
             {% for burger in burgers %}
                 <a href="{% url 'burger_detail' burger.id %}" >{{burger.name}},</a>
@@ -94,8 +73,8 @@
             {% for pizza in pizzas %}
                 <a href="{% url 'pizza_detail' pizza.id %}" >{{pizza.name}}, </a>
             {% endfor %}
-        {% endblock %}
     </div>
 </div>
+{% endblock %}
 </body>
 </html>

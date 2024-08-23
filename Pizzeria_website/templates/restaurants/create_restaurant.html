@@ -1,0 +1,15 @@
+{% extends 'pizzas/nav_bar.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="container">
+    <button class="button button1" onclick="buttonClicked('restaurant')">Add Restaurant</button>
+    <br></br>
+    <div id="restaurant">
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ restaurant_form | crispy}}
+            <button type="submit" class="button button1">Submit</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

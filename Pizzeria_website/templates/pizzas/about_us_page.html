@@ -1,3 +1,4 @@
+{% extends 'pizzas/nav_bar.html' %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -42,28 +43,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <body>
-<nav class="navbar navbar-inverse">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <button class="navbar-toggle" data-target="#myNavbar" data-toggle="collapse" type="button">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#">Pizza Paradiso</a>
-        </div>
-        <div class="collapse navbar-collapse" id="myNavbar">
-            <ul class="nav navbar-nav">
-                <li><a href="{% url 'main_page'%}">Home</a></li>
-                <li><a href="{% url 'all_products' %}">All Products</a></li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="#"><span class="glyphicon glyphicon-user"></span> Your Account</a></li>
-                <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
-            </ul>
-        </div>
-    </div>
-</nav>
+{% block content %}
 <div class="container p-5 my-5 border">
     <h1>❤️ Our team ❤️</h1>
     <p>At Pizzeria Paradiso, we believe in the magic of family and the joy that comes from sharing a delicious meal
@@ -117,6 +97,6 @@
     <p>Facebook: https://ourFacebookUrl.com/</p>
     <p>Instagram: https://ourInstagramUrl.com/</p>
 </div>
-
+{% endblock %}
 </body>
 </html>

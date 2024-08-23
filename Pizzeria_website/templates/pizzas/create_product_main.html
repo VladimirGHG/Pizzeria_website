@@ -1,0 +1,32 @@
+{% extends 'pizzas/nav_bar.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Products</title>
+</head>
+{% block content %}
+<div class="container">
+    <button class="button button1" onclick="buttonClicked('pizza')">Create Pizza</button>
+    <button class="button button1" onclick="buttonClicked('burger')">Create Burger</button>
+    <br></br>
+    <div id="pizza" style="hidden">
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ pizza_form | crispy }}
+                <button type="submit" name="pizza_submit" class="button button1">Submit</button>
+            </form>
+        </div>
+
+        <div id="burger" class="hidden">
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ burger_form | crispy}}
+                <button type="submit" name="burger_submit" class="button button1">Submit</button>
+            </form>
+        </div>
+</div>
+{% endblock %}
+

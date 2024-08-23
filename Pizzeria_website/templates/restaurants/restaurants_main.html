@@ -1,0 +1,159 @@
+{% extends 'pizzas/nav_bar.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Pizza Paradiso</title>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <style>
+
+        /* Remove the navbar's default rounded borders and increase the bottom margin */
+        .navbar {
+            margin-bottom: 50px;
+            border-radius: 0;
+        }
+
+        /* Remove the jumbotron's default bottom margin */
+        .jumbotron {
+            margin-bottom: 0;
+        }
+
+        /* Add a gray background color and some padding to the footer */
+        footer {
+            background-color: #eeeeee;
+            padding: 25px;
+        }
+
+        /* Custom panel primary color */
+        .panel-primary > .panel-heading {
+            background-color: #1e1e1e !important; /* Change this to black */
+            border-color: #1e1e1e !important; /* Change this to black */
+        }
+        .panel-primary {
+            border-color: #1e1e1e !important; /* Change this to black */
+        }
+
+        /* Custom CSS to align text to bottom right corner */
+        .panel-footer {
+            position: relative;
+        }
+        .panel-footer .text-right {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+        }
+
+        /* Hover text effect */
+        .hover-container {
+            position: relative;
+            display: inline-block;
+        }
+
+        .hover-container .hover-text {
+            visibility: hidden;
+            width: 200px; /* Adjust width as needed */
+            background-color: #555;
+            color: #fff;
+            text-align: center;
+            border-radius: 5px;
+            padding: 10px;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%; /* Position the text above the container */
+            left: 50%;
+            margin-left: -100px; /* Adjust to center text */
+            opacity: 0;
+            transition: opacity 0.3s;
+            white-space: nowrap; /* Prevent text from wrapping */
+        }
+
+        .hover-container:hover .hover-text {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        /* Custom styling for hover effect in navbar */
+        .nav li {
+            position: relative;
+        }
+        .nav li .hover-text {
+            display: none;
+        }
+        .nav li:hover .hover-text {
+            display: block;
+            position: absolute;
+            bottom: -30px; /* Adjust based on your design */
+            left: 0;
+            background-color: #555;
+            color: #fff;
+            padding: 5px;
+            border-radius: 5px;
+        }
+
+    </style>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+{% block content %}
+<div class="jumbotron">
+    <div class="container">
+        <button class="button button1"  onclick="redirectToPage({% url 'add_restaurant' %})" >Add Restaurant</button>
+        <br></br>
+        <div class="row">
+            {% for restaurant in page_obj %}
+            <div class="col-sm-4">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <a href="{% url 'restaurant_detail' restaurant.id %}" style="color: white;">{{ restaurant.name }}</a>
+                    </div>
+                    <div class="panel-body">
+                        {% if restaurant.logo %}
+                        {% load static %}
+                        <img src="{{ restaurant.logo.url }}"
+                             alt="{{ restaurant.name }}"
+                             style="width:100%">
+                        {% else %}
+                        <img alt="Image" class="img-responsive" src="https://placehold.it/150x80?text=IMAGE"
+                             style="width:100%">
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+    <div style="text-align: center;">
+        <nav aria-label="Page navigation example">
+            <ul class="pagination">
+                {% if page_obj.has_previous %}
+                <li class="page-item"><a class="page-link" href="?page=1">&laquo First</a></li>
+                <li class="page-item"><a class="page-link" href="?page={{ page_obj.previous_page_number }}">{{ page_obj.previous_page_number }}</a>
+                </li>
+
+                {% endif %}
+                <li class="page-item disabled"><a href="#" class="page-link">{{ page_obj.number }}</a></li>
+
+                {% if page_obj.has_next %}
+
+                <li class="page-item"><a class="page-link" href="?page={{ page_obj.next_page_number }}">{{ page_obj.next_page_number }}</a></li>
+
+                <li class="page-item"><a class="page-link" href="?page={{ page_obj.paginator.num_pages }}">Last
+                    &raquo</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+    </div>
+    </div>
+</div>
+    {% endblock %}
+</body>
+</html>
