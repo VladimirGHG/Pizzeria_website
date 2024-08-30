@@ -1,0 +1,12 @@
+{% extends 'pizzas/nav_bar.html' %}
+{% block content %}
+<div class="container">
+    <form method="POST">
+        {% csrf_token %}
+        <label for="fname">Enter your username to delete the account:</label><br>
+        <input type="text" id="fname" name="fname" style="width: 400px;"><br>
+        <button type="submit" class="button button_delete" style="width: 200px;">DELETE</button>
+    </form>
+    <a href="{% url 'users:profile' request.user.pk %}" class="button button5" style="width: 200px;">Cancel</a>
+</div>
+{% endblock %}

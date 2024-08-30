@@ -9,14 +9,14 @@
 </head>
 {% block content %}
 <div class="container">
-    <button class="button button1" onclick="buttonClicked('pizza')">Create Pizza</button>
-    <button class="button button1" onclick="buttonClicked('burger')">Create Burger</button>
+    <button class="button button5" onclick="buttonClicked('pizza')">Create Pizza</button>
+    <button class="button button5" onclick="buttonClicked('burger')">Create Burger</button>
     <br></br>
     <div id="pizza" style="hidden">
             <form method="POST" enctype="multipart/form-data">
                 {% csrf_token %}
                 {{ pizza_form | crispy }}
-                <button type="submit" name="pizza_submit" class="button button1">Submit</button>
+                <button type="submit" name="pizza_submit" class="button button5">Submit</button>
             </form>
         </div>
 
@@ -24,7 +24,7 @@
             <form method="POST" enctype="multipart/form-data">
                 {% csrf_token %}
                 {{ burger_form | crispy}}
-                <button type="submit" name="burger_submit" class="button button1">Submit</button>
+                <button type="submit" name="burger_submit" class="button button5">Submit</button>
             </form>
         </div>
 </div>

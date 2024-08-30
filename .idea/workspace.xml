@@ -5,28 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="862bbde7-d82c-4c6b-91ae-f79e016fc1f0" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_10_2024_11_16_AM_[Changes]/db.sqlite3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_10_2024_11_16_AM_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_10_2024_11_16_AM__Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_12_2024_9_00_PM_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_12_2024_9_00_PM__Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_12_2024_9_05_PM_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_12_2024_9_05_PM__Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_15_2024_11_00_PM_[Changes]/db.sqlite3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_15_2024_11_00_PM_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_15_2024_11_00_PM__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Pizzeria_website/Pizzeria_website/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/Pizzeria_website/Pizzeria_website/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Pizzeria_website/Pizzeria_website/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Pizzeria_website/Pizzeria_website/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Pizzeria_website/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/Pizzeria_website/db.sqlite3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Pizzeria_website/pizzas/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Pizzeria_website/pizzas/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pizzeria_website/pizzas/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Pizzeria_website/pizzas/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pizzeria_website/static/catalog/main_page.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pizzeria_website/templates/pizzas/about_us_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/Pizzeria_website/templates/pizzas/about_us_page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pizzeria_website/templates/pizzas/description.html" beforeDir="false" afterPath="$PROJECT_DIR$/Pizzeria_website/templates/pizzas/description.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pizzeria_website/static/js/redirect_onclick.js" beforeDir="false" afterPath="$PROJECT_DIR$/Pizzeria_website/static/js/redirect_onclick.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pizzeria_website/templates/pizzas/create_product_main.html" beforeDir="false" afterPath="$PROJECT_DIR$/Pizzeria_website/templates/pizzas/create_product_main.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Pizzeria_website/templates/pizzas/main_website_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/Pizzeria_website/templates/pizzas/main_website_page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pizzeria_website/templates/pizzas/restaurant_description.html" beforeDir="false" afterPath="$PROJECT_DIR$/Pizzeria_website/templates/pizzas/restaurant_description.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pizzeria_website/templates/pizzas/restaurants_main.html" beforeDir="false" afterPath="$PROJECT_DIR$/Pizzeria_website/templates/pizzas/restaurants_main.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pizzeria_website/templates/pizzas/nav_bar.html" beforeDir="false" afterPath="$PROJECT_DIR$/Pizzeria_website/templates/pizzas/nav_bar.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pizzeria_website/templates/pizzas/products_home.html" beforeDir="false" afterPath="$PROJECT_DIR$/Pizzeria_website/templates/pizzas/products_home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pizzeria_website/templates/pizzas/update_burger.html" beforeDir="false" afterPath="$PROJECT_DIR$/Pizzeria_website/templates/pizzas/update_burger.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pizzeria_website/templates/pizzas/update_pizza.html" beforeDir="false" afterPath="$PROJECT_DIR$/Pizzeria_website/templates/pizzas/update_pizza.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pizzeria_website/templates/restaurants/create_restaurant.html" beforeDir="false" afterPath="$PROJECT_DIR$/Pizzeria_website/templates/restaurants/create_restaurant.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pizzeria_website/templates/restaurants/restaurants_main.html" beforeDir="false" afterPath="$PROJECT_DIR$/Pizzeria_website/templates/restaurants/restaurants_main.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,8 +28,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Python Script" />
         <option value="HTML File" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
@@ -59,24 +51,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;Python.settings.executor&quot;: &quot;Run&quot;,
-    &quot;Python.thread.executor&quot;: &quot;Debug&quot;,
-    &quot;Python.views.executor&quot;: &quot;Debug&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "Python.settings.executor": "Run",
+    "Python.thread.executor": "Debug",
+    "Python.views.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
+    "settings.editor.selected.configurable": "com.intellij.pycharm.community.ide.impl.configuration.PythonContentEntriesConfigurable"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\user\PycharmProjects\Pizzeria_website\Pizzeria_website\static\css" />
+      <recent name="C:\Users\user\PycharmProjects\Pizzeria_website\Pizzeria_website\templates\restaurants" />
       <recent name="C:\Users\user\PycharmProjects\Pizzeria_website\Pizzeria_website\static" />
       <recent name="C:\Users\user\PycharmProjects\Pizzeria_website\Pizzeria_website\st_media" />
       <recent name="C:\Users\user\PycharmProjects\Pizzeria_website\Pizzeria_website\templates" />
-      <recent name="C:\Users\user\PycharmProjects\Pizzeria_website\Pizzeria_website\media" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />

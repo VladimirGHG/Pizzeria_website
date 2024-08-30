@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +9,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-
+    <link rel="stylesheet" href="{% static 'css/navbar_dropdown.css' %}">
     <style>
 
         /* Remove the navbar's default rounded borders and increase the bottom margin */
@@ -116,8 +117,6 @@
                 </div>
                 <ul class="nav navbar-nav">
                     <li><a href="/">Home</a></li>
-                    <li><a href="{% url 'all_products' %}">All Products</a></li>
-                    <li><a href="{% url 'about_us' %}">About Us</a></li>
                     <li class="hover-container">
                         <a href="#">Contact</a>
                         <div class="hover-text">
@@ -136,6 +135,26 @@
                         </div>
                     </div>
                 </form>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <div class="dropdown">
+                            <button class="dropbtn">More</button>
+                            <div class="dropdown-content">
+                                <a href="{% url 'home_restaurants' %}">Restaurants</a>
+                                <a href="{% url 'create_product' %}">Create Product</a>
+                                <a href="{% url 'all_products' %}">All Products</a>
+                                {% if not request.user.is_authenticated %}
+                                    <a href="{% url 'users:register' %}">Sign Up</a>
+                                    <a href="{% url 'users:login_user' %}">Login</a>
+                                {% else %}
+                                    <a href="{% url 'users:profile-list' %}">Profiles</a>
+                                    <a href="{% url 'users:profile' request.user.pk %}">Own profile</a>
+                                    <a href="{% url 'users:log_out_user' %}">LogOut</a>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </li>
+                </ul>
             </div>
         </nav>
     </div>

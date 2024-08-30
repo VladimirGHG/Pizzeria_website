@@ -37,7 +37,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'crispy_forms',
     'crispy_bootstrap4',
+    'phonenumber_field',
+    'django_countries',
     'pizzas.apps.PizzasConfig',
+    'users.apps.UsersConfig'
 ]
 
 MIDDLEWARE = [

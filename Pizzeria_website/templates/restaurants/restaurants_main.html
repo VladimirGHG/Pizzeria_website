@@ -106,7 +106,7 @@
 {% block content %}
 <div class="jumbotron">
     <div class="container">
-        <button class="button button1"  onclick="redirectToPage({% url 'add_restaurant' %})" >Add Restaurant</button>
+        <button class="button button5"  {% if request.user.is_authenticated %} onclick="redirectToPage({% url 'add_restaurant' %})" {% else %} onclick="redirectToPage({% url 'users:login_user' %})"{% endif %}>Add Restaurant</button>
         <br></br>
         <div class="row">
             {% for restaurant in page_obj %}
@@ -130,28 +130,6 @@
             </div>
             {% endfor %}
         </div>
-
-    <div style="text-align: center;">
-        <nav aria-label="Page navigation example">
-            <ul class="pagination">
-                {% if page_obj.has_previous %}
-                <li class="page-item"><a class="page-link" href="?page=1">&laquo First</a></li>
-                <li class="page-item"><a class="page-link" href="?page={{ page_obj.previous_page_number }}">{{ page_obj.previous_page_number }}</a>
-                </li>
-
-                {% endif %}
-                <li class="page-item disabled"><a href="#" class="page-link">{{ page_obj.number }}</a></li>
-
-                {% if page_obj.has_next %}
-
-                <li class="page-item"><a class="page-link" href="?page={{ page_obj.next_page_number }}">{{ page_obj.next_page_number }}</a></li>
-
-                <li class="page-item"><a class="page-link" href="?page={{ page_obj.paginator.num_pages }}">Last
-                    &raquo</a></li>
-                {% endif %}
-            </ul>
-        </nav>
-    </div>
     </div>
 </div>
     {% endblock %}

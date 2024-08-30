@@ -1,0 +1,9 @@
+{% extends 'pizzas/nav_bar.html' %}
+{% block content %}
+<div class="container">
+    {% for user in object_list %}
+    <a href="{% url 'users:profile' user.pk %}"><button class="button button5" style="width:550px;">{{ user.username }}</button></a>
+    {% endfor %}
+</div>
+
+{% endblock %}

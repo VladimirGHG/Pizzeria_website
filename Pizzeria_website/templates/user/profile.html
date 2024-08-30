@@ -1,0 +1,13 @@
+{% extends 'pizzas/nav_bar.html' %}
+
+{% block content %}
+
+    <div class="container">
+        <button class="button button4" style="width:1100px;">Username: {{ object }}</button><br>
+        <button class="button button4" style="width:1100px;">First Name: {{ object.first_name }}</button><br>
+        <button class="button button4" style="width:1100px;">Last Name: {{ object.last_name }}</button><br>
+        <button class="button button4" style="width:1100px;">Email: {{ object.email }}</button><br>
+        <a href="{% url 'users:update_profile' object.pk %}"><button class="button button5">Update Profile</button></a>
+        <a href="{% url 'users:delete_profile' object.pk %}"><button class="button button_delete">Delete Profile</button></a>
+    </div>
+{% endblock %}
