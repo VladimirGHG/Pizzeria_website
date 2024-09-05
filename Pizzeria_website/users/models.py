@@ -11,6 +11,7 @@ class Profile(models.Model):
     photo = models.ImageField(upload_to="photo/", blank=True, null=True)
     phone_number = PhoneNumberField(blank=True, null=True)
     country = CountryField(blank=True, null=True)
+    own_restaurants = models.CharField(max_length=50, blank=True, null=True)
 
     def __str__(self):
         return f"{self.user.username}"

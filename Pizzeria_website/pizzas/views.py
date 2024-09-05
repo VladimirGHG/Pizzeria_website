@@ -1,5 +1,8 @@
+from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
 from django.shortcuts import render, get_object_or_404, redirect
+from users.models import Profile
 
 from .forms import PizzaForm, BurgerForm, RestaurantForm
 from .models import Pizza, Burger, Restaurants
@@ -131,11 +134,36 @@ def update_pizza(request, pizza_id):
 
     return render(request, 'pizzas/update_pizza.html', {'form': form, 'pizza': pizza})
 
+
 def add_restaurant(request):
+    user_pr = Profile.objects.get(user=request.user)
+    if user_pr.own_restaurants:
+        messages.info(request, "Your already have a registered restaurant.")
+        return redirect("main_page")
     restaurant_form = RestaurantForm()
     if request.method == "POST":
         restaurant_form = RestaurantForm(request.POST, request.FILES)
         if restaurant_form.is_valid():
-            restaurant_form.save()
+            data = restaurant_form.save()
+            profile = user_pr
+            profile.own_restaurants = data.name
+            profile.save()
+            data.save()
             return redirect("main_page")
     return render(request, 'restaurants/create_restaurant.html', {'restaurant_form': restaurant_form})
+
+
+@login_required(login_url="users:login_user")
+def delete_restaurant(request, restaurant_id):
+    user_pr = Profile.objects.get(user=request.user)
+    restaurant = get_object_or_404(Restaurants, id=restaurant_id)
+    if user_pr.own_restaurants == restaurant.name:
+        if request.method == "POST":
+            restaurant.delete()
+            messages.success(request, "Restaurant deleted successfully.")
+            return redirect("main_page")
+    else:
+        messages.info(request, "You can delete only your restaurant")
+        return redirect("main_page")
+    message = f"Are you sure you want to DELETE {restaurant.name} restaurant ?"
+    return render(request, 'general/delete_confirmation.html', {'restaurant': restaurant, 'message': message})
