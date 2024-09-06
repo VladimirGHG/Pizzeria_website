@@ -6,6 +6,7 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1" name="viewport">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
@@ -143,6 +144,7 @@
                                 <a href="{% url 'home_restaurants' %}">Restaurants</a>
                                 <a href="{% url 'create_product' %}">Create Product</a>
                                 <a href="{% url 'all_products' %}">All Products</a>
+                                <a href="{% url 'cart:your_cart' %}">Cart</a>
                                 {% if not request.user.is_authenticated %}
                                     <a href="{% url 'users:register' %}">Sign Up</a>
                                     <a href="{% url 'users:login_user' %}">Login</a>
@@ -167,6 +169,7 @@
                 <div class="panel panel-primary">
                     <div class="panel-heading">
                         <a href="{% url 'pizza_detail' pizza.id %}" style="color: white;">{{ pizza.name }}</a>
+                        <a href="#" style="float:right;">🤍</a>
                     </div>
                     <div class="panel-body">
                         {% if pizza.image %}
@@ -219,13 +222,6 @@
         </div>
         {% endif %}
         <br><br>
-        <footer class="container-fluid text-center">
-            <p>Wanna become a member?</p>
-            <form class="form-inline">:
-                <input class="form-control" placeholder="Email Address" size="50" type="email">
-                <button class="btn btn-danger" type="button">Sign Up</button>
-            </form>
-        </footer>
     </div>
     <div style="text-align: center;">
         <nav aria-label="Page navigation example">

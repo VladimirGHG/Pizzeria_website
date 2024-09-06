@@ -7,6 +7,8 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+            integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <style>
         /* Remove the navbar's default rounded borders and increase the bottom margin */
         .navbar {
@@ -70,7 +72,8 @@
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="#"><span class="glyphicon glyphicon-user"></span> Your Account</a></li>
-                <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
+                <li><a href="{% url 'cart:your_cart'%}"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a>
+                </li>
             </ul>
         </div>
     </div>
@@ -80,7 +83,20 @@
     <table class="table">
         <thead>
         <tr>
-            <th>{{ product.name }}</th>
+            <th>{{ product.name }}
+                <form method="POST" id="add-to-cart-form">
+                    {% csrf_token %}
+                    <input type="hidden" name="product_id" value="{{ product.id }}">
+                    {% if pr == "pizza" %}
+                    <input type="hidden" name="product_type" value="pizza">
+                    {% elif pr == "burger" %}
+                    <input type="hidden" name="product_type" value="burger">
+                    {% endif %}
+                    <button type="button" value="{{product.id}}" id="add-cart" style="float:right;"
+                            class="btn btn-secondary">Add To Cart
+                    </button>
+                </form>
+            </th>
         </tr>
         </thead>
         <tbody>
@@ -152,26 +168,49 @@
     <div class="restaurants-with">
         <h2><b>Restaurants with Similar Products</b></h2>
         {% if restaurants %}
-            {% for restaurant in restaurants %}
-            <div class="col-sm-4">
-                <div class="panel panel-primary">
-                    <div class="panel-heading">
-                        <a href="{% url 'restaurant_detail' restaurant.id %}" style="color: white;">{{ restaurant }}</a>
-                    </div>
-                    <div class="panel-body">
+        {% for restaurant in restaurants %}
+        <div class="col-sm-4">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <a href="{% url 'restaurant_detail' restaurant.id %}" style="color: white;">{{ restaurant }}</a>
+                </div>
+                <div class="panel-body">
                     {% if restaurant.logo %}
                     <img src="{{ restaurant.logo.url }}" alt="{{ restaurant.name }}">
                     {% else %}
                     <img src="https://placehold.it/150x80?text=IMAGE" alt="Image" class="img-responsive">
                     {% endif %}
                 </div>
-                </div>
             </div>
-            {% endfor %}
+        </div>
+        {% endfor %}
         {% else %}
-            <h2><b>-</b></h2>
+        <h2><b>-</b></h2>
         {% endif %}
     </div>
 </div>
+<script>
+    $(document).on('click', '#add-cart', function(e){
+        e.preventDefault();
+        $.ajax({
+            type: 'POST',
+            url: '{% url 'cart:add_cart' %}',
+            data: {
+                product_id: $('#add-cart').val(),
+                csrfmiddlewaretoken: '{{ csrf_token }}',
+                action: 'post'
+            },
+
+            success: function(json){
+                console.log(json)
+            },
+
+            error: function(xhr, errmsg, err){
+
+            }
+        });
+
+    })
+</script>
 </body>
 </html>

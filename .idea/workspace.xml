@@ -6,12 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="862bbde7-d82c-4c6b-91ae-f79e016fc1f0" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pizzeria_website/Pizzeria_website/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/Pizzeria_website/Pizzeria_website/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pizzeria_website/Pizzeria_website/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Pizzeria_website/Pizzeria_website/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Pizzeria_website/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/Pizzeria_website/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pizzeria_website/pizzas/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Pizzeria_website/pizzas/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pizzeria_website/pizzas/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Pizzeria_website/pizzas/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pizzeria_website/templates/pizzas/description.html" beforeDir="false" afterPath="$PROJECT_DIR$/Pizzeria_website/templates/pizzas/description.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Pizzeria_website/templates/pizzas/nav_bar.html" beforeDir="false" afterPath="$PROJECT_DIR$/Pizzeria_website/templates/pizzas/nav_bar.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pizzeria_website/templates/restaurants/restaurant_description.html" beforeDir="false" afterPath="$PROJECT_DIR$/Pizzeria_website/templates/restaurants/restaurant_description.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pizzeria_website/users/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/Pizzeria_website/users/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pizzeria_website/templates/pizzas/products_home.html" beforeDir="false" afterPath="$PROJECT_DIR$/Pizzeria_website/templates/pizzas/products_home.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,6 +34,9 @@
       </GitPushTagMode>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 4
